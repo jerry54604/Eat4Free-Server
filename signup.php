@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         "iat" => $issuedAt,
         "nbf" => $notBefore,
         "data" => [ // Data related to the signer user
-          "userId"   => $user -> id, // userid from the users table
+          "id"   => $user -> id, // userid from the users table
           "username" => $user -> username, // User name
           "name" => $user -> firstname . " " . $user -> lastname
         ]

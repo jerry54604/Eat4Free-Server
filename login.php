@@ -4,10 +4,6 @@ include "/config.php";
 include "/classes/users.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  header("Access-Control-Allow-Origin: *");
-  header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-  header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
-  
   if (!empty($_POST["username"]) && !empty($_POST["pass"])) {
     $username = $_POST["username"];
     $pass = $_POST["pass"];
@@ -25,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         "iat" => $issuedAt,
         "nbf" => $notBefore,
         "data" => [ // Data related to the signer user
-          "userId"   => $user -> id, // userid from the users table
+          "id"   => $user -> id, // userid from the users table
           "username" => $user -> username, // User name
           "name" => $user -> firstname . " " . $user -> lastname
         ]
